@@ -1,0 +1,1 @@
+- [Browser workflow checks](browser-workflow-checks.md) — Use the installed headless Chromium and Node WebSocket for click-through checks without adding dependencies.
