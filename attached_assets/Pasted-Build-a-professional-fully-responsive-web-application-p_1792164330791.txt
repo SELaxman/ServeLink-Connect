@@ -1,0 +1,128 @@
+Build a professional, fully responsive web application prototype for a local services marketplace that connects customers with nearby skilled professionals such as electricians, plumbers, painters, mechanics and masons.
+
+IMPORTANT:
+- First inspect the existing project, framework, files and dependencies.
+- If this is an existing project, improve it without unnecessarily deleting or replacing working code.
+- Build a working interactive prototype, not just static UI screens.
+- Use the existing React setup if present. If starting fresh, use React + Vite + TypeScript if practical, with clean CSS or the existing styling framework.
+- The website must work well on mobile phones, tablets and desktop screens.
+- Use realistic demo data and local state for the prototype. Do not require paid APIs or external services.
+
+DESIGN AND BRAND:
+Create a polished, modern, trustworthy startup-quality design. Use a clean white background, deep navy/blue text and green accents. Use consistent spacing, rounded cards, subtle shadows, clear typography, accessible contrast and professional icons. Avoid clutter, excessive gradients, oversized text and generic template styling. Make all pages visually consistent. Use Lucide icons if available. Use real-looking worker imagery only where appropriate; provide graceful fallbacks if external images fail.
+
+1. CUSTOMER HOMEPAGE:
+- Header: logo on the top-left; Home and About links around the centre; search field for services; Login/Profile on the right.
+- If logged out, show Login and Sign Up.
+- If logged in, show a profile menu with the current role and Logout.
+- On mobile, use a compact header and responsive menu.
+- Hero heading: “Find Trusted Local Professionals”
+- Supporting text: “Describe your problem or choose a professional yourself.”
+- Search should filter service categories or navigate to the relevant service page.
+- Display service category cards: Electrician, Plumber, Painter, Mechanic and Mason, with suitable icons.
+- Add a short “How it works” section and a clean footer with About and Contact links.
+- Do not claim workers are verified unless verification is actually implemented.
+
+2. SERVICE RESULTS PAGE:
+When a customer selects a service category, open a dedicated page such as /services/electrician.
+- Display the selected category and a search/filter area.
+- Show a prominent “Smart Select” card near the top.
+- Below it, display “Explore Professionals” with professional cards sorted by rating by default.
+- Each professional card should show a demo profile image/avatar, name, service, rating, experience, approximate area, availability and past-work thumbnail previews where available.
+- Add filters for rating, availability and experience where practical.
+- Use believable sample data, clearly treated as demo data.
+
+3. SMART SELECT FLOW:
+When the customer clicks Smart Select, open a dedicated form or modal:
+- Selected service category.
+- Optional text field: “Describe your problem”.
+- Optional photo upload with preview and remove option.
+- Make it clear that both text and photo are optional.
+- A Proceed button.
+- Validate only the necessary fields; allow proceeding without text or photo.
+- On Proceed, create a service request and send it to relevant nearby demo professionals who provide the selected service and are available.
+- For this prototype, simulate matching using local demo data. Do not use AI image analysis.
+- Show a confirmation screen and request status such as “Request sent”.
+- Explain that relevant professionals can accept or reject the request.
+
+4. CUSTOMER-SELECTED PROFESSIONAL FLOW:
+- Clicking a professional card opens a detailed profile page or modal.
+- Show profile information, skills, experience, rating, availability, past-work gallery and reviews using demo data.
+- Include a “Send Request” button.
+- The customer can optionally attach the job description and a photo to this request too.
+- After submitting, show the request status.
+- Do not reveal direct phone number, call or message controls before acceptance.
+
+5. PROFESSIONAL SIDE:
+Build a separate professional dashboard, accessible from the profile menu or a role-selection/demo-login screen.
+Include:
+- Professional dashboard home.
+- Incoming Requests.
+- My Profile.
+- Availability Settings.
+- My Jobs / Request History.
+- Logout.
+- Dashboard summary cards such as pending requests, accepted jobs and completed demo jobs.
+- Incoming request cards should show the customer’s selected service, problem description if provided, attached photo if any, approximate service area and request time.
+- Add functional Accept and Reject buttons.
+- Accepting a request must update its status and unlock Call and Message controls for the matching customer in the prototype.
+- Rejecting a request must update its status and remove it from pending requests.
+- Let the professional toggle availability between Available and Busy.
+- Allow editing profile details such as name, service, experience, service area, skills and past-work images where feasible.
+- Make the professional dashboard responsive and easy to use on mobile.
+
+6. REQUEST STATUS AND CONTACT RULE:
+Implement this rule consistently for BOTH Smart Select requests and customer-selected professional requests:
+- A request starts as Pending.
+- The professional can Accept or Reject.
+- Only after that specific professional accepts, the customer can see Call and Message buttons for that professional.
+- If rejected, keep contact controls locked and allow the customer to choose another professional or send another request.
+- The professional dashboard should reflect status changes.
+- Prevent duplicate acceptance/rejection actions and show clear status labels.
+- For the demo, Call may use a sample tel link and Message may open an in-app demo chat. Never invent a real phone number.
+- Display clear demo/prototype notices where needed.
+
+7. DEMO LOGIN AND ROLE SWITCHING:
+- Provide a simple demo sign-in experience so judges can test both Customer and Professional sides without creating real accounts.
+- Include clearly labelled “Continue as Customer” and “Continue as Professional” demo options.
+- Use demo profiles and role-based navigation.
+- Provide a logout/switch role option.
+- Do not claim production-grade authentication or security.
+- Keep demo requests and status changes consistent across both sides within the same running app session, using shared React state and localStorage if appropriate.
+- Explain in the UI that this is a prototype and demo data is stored locally.
+
+8. RESPONSIVE DESIGN:
+- Mobile-first layouts.
+- No horizontal overflow at 320px width.
+- Professional cards stack vertically on small screens.
+- Use appropriate touch target sizes.
+- Desktop can use multi-column grids and a wider dashboard.
+- Navigation, forms, upload previews, modals and dashboards must work on mobile, tablet and desktop.
+- Check responsive behavior at approximately 320px, 375px, 768px and 1440px widths.
+
+9. TECHNICAL REQUIREMENTS:
+- Use reusable React components and clean project structure.
+- Use React Router if routing is available or appropriate.
+- Use shared state so request changes are reflected on customer and professional screens.
+- Persist demo state across page refreshes where practical.
+- Handle empty states, loading feedback, errors, form validation and missing images.
+- Avoid dead buttons, placeholder links and buttons that only look functional.
+- Ensure all routes work after navigation and refresh as far as the current hosting setup allows.
+- Do not expose secrets or add unnecessary paid dependencies.
+- Do not build a fake real-time notification service; simulate incoming requests in the demo.
+- Keep code understandable and maintainable.
+
+10. DEMO ACCEPTANCE TEST:
+After implementation, test this complete scenario:
+A. Open the homepage on mobile and desktop.
+B. Select Electrician.
+C. Open Smart Select, enter a problem description or skip it, optionally attach a photo, and proceed.
+D. Confirm the request appears as Pending.
+E. Switch to the Professional demo dashboard.
+F. Find that request and click Accept.
+G. Switch back to the Customer side and verify that the request now shows Accepted and Call/Message controls are unlocked.
+H. Test Reject on a separate request and confirm that contact controls remain locked.
+I. Test the same acceptance rule for a customer-selected professional.
+J. Test navigation, profile switching, refresh persistence and mobile layouts.
+
+Start by inspecting the existing code. Then implement the application in logical stages, run the available build/test commands, fix errors, and summarize which features work and which still need a real backend. Do not stop after generating a design mockup; make the core demo flows interactive.

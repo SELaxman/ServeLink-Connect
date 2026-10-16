@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "ServeLink"
+description = "A trusted local services marketplace demo that helps customers find nearby skilled professionals and lets workers manage service requests, availability, and profiles."
+version = "1.0.0"
+id = "artifacts/servelink"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23741
+
+[services.development]
+run = "pnpm --filter @workspace/servelink run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/servelink", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/servelink/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23741"
+BASE_PATH = "/"
