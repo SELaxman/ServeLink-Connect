@@ -1,0 +1,58 @@
+Build a modern, responsive prototype for a local home-services marketplace app.
+
+**Important:** First inspect the existing project. If code already exists, improve it without unnecessarily deleting working features.
+
+### 1. Homepage
+
+* Create a clean, professional homepage.
+* Add app logo, app name, slogan, navigation, search bar and Login/Register.
+* Show service categories: Electrician, Plumber, Painter, Mechanic and Mason.
+* Add a short How It Works section.
+* Use a consistent navy-blue, blue and green color palette.
+
+### 2. Service Listing Page
+
+* When a customer selects a category, open its service page.
+* Place a prominent Smart Select button at the top.
+* Display professional cards below it, sorted by rating.
+* Show name, rating, experience, availability and sample past work.
+* Allow customers to open a professional's profile.
+
+### 3. Smart Select Workflow
+
+* On clicking Smart Select, show a request form.
+* Let the customer optionally describe the problem using text and/or upload a photo.
+* Do not use AI to analyse the photo.
+* On Proceed, create a demo request and show it to relevant available professionals in the selected category.
+* Show a clear request status.
+
+### 4. Manually Select a Professional
+
+* Customers can open a professional's profile and click Send Request.
+* Allow an optional text description and photo.
+* Create a request for that professional.
+
+### 5. Professional Dashboard
+
+* Allow switching between Customer Demo and Professional Demo modes.
+* Show incoming requests with service category, description and photo when available.
+* Add Accept and Reject buttons.
+* Add an availability toggle and a simple request history.
+* When a professional accepts a request, update its status and unlock Call/Message options only for the matching customer and professional.
+* Rejected or pending requests must not unlock contact options.
+
+### 6. Prototype Requirements
+
+* Use React and the project's existing framework.
+* Use reusable components and clean code.
+* Use realistic sample professionals and sample ratings clearly treated as demo data.
+* For now, use React state and localStorage where appropriate. Do not pretend that real notifications or cross-device synchronization work without a backend.
+* Make navigation and all important buttons functional.
+* Make the layout responsive on mobile, tablet and desktop.
+* Include empty states, loading feedback where appropriate, and friendly error messages.
+
+### 7. Test Before Finishing
+
+Test both customer workflows: Smart Select and manually choosing a professional. Test Accept, Reject, request status and contact unlocking. Fix errors and run the project's build command if available.
+
+Finally, summarize what works, how to run the app, and what requires a real backend later.
